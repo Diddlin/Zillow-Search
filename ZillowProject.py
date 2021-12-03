@@ -36,8 +36,7 @@ def send_new_house():
     for row in new_prop:
         main_csv.loc[len(main_csv.index)] = row
         main_csv.to_csv("Biglist.csv")
-        message = client.messages \
-                    .create(
+        message = client.messages.create(
                          body= row.url,
                          from_='+14158779518',
                          to='+14159884881'
@@ -53,18 +52,17 @@ def test():
     auth_token = os.getenv("auth_token")
     client = Client(account_sid, auth_token)
 
-     message = client.messages \
-                    .create(
+    message = client.messages.create(
                          body= 'This is working, Bruv',
                          from_='+14158779518',
                          to='+14159884881'
                      )
 
-        print(message.sid)
+    print(message.sid)
 
         
 if __name__ == "__main__":
-    send_new_house()
+    test()
 
 #Command for VM 
 ##dmazzeo@dmazzeo-ltm Zillow % source env/bin/activate
